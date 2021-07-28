@@ -146,5 +146,19 @@ namespace RongCloud.Controllers
             });
             return Json(new { result });
         }
+
+        public ActionResult Test(string id)
+        {
+            var test = TestHelper.Instance.GetTest(id);
+            return Json("用户" + id + test);
+        }
+
+        public ActionResult ResetCount(int total = 10)
+        {
+            CacheHelper.Set("Num", total);
+            TestHelper.total = total;
+            TestHelper.queueAll.Clear();
+            return Json(total);
+        }
     }
 }

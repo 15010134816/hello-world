@@ -17,6 +17,7 @@ namespace RongCloud.Controllers
             {
                 CookieHelper.SetCookies(CookieHelper.CookiesUserId, userId);
             }
+            CacheHelper.Set("Num", "10");
             return View();
         }
         public ActionResult SetCookie(string userId)

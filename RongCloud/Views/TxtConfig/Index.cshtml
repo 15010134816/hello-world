@@ -1,0 +1,100 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>配置文件管理</title>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+</head>
+<body>
+    <div>
+        <div>
+            文件类型：<input type="text" id="fileType" value="PriceArgsKill" />
+            文件编号：<input type="text" id="fileNum" value="11101" />
+            <input type="button" value="读取文件" id="btnRead" />
+        </div>
+        <div>
+            <textarea id="fileContent" rows="20" cols="80"></textarea>
+        </div>
+        <div>
+            <input type="button" value="保存文件" id="btnSave" /><input type="button" value="json格式化" id="btnJson" />
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $("#btnRead").unbind().bind("click", function () {
+                var fileType = $("#fileType").val();
+                var fileNum = $("#fileNum").val();
+                if (fileType == "" || fileNum == "") {
+                    console.log("先填写文件相关信息");
+                    return;
+                }
+                var fileName = "http://localhost:8080/" + fileType + fileNum;// + "_" 
+                //var fileName = "App_Data/" + fileType + "_" + fileNum;
+                $.ajax({
+                    url: "/TxtConfig/ReadFileHttp",
+                    type: "post",
+                    dataType: "json",
+                    data: { fileName },
+                    success: function (data) {
+                        if (data.code == 200) {
+                            $("#fileContent").val(data.result);
+                        } else {
+                            console.log(data.msg);
+                            $("#fileContent").val("");
+                        }
+                    }
+                });
+            })
+            $("#btnSave").unbind().bind("click", function () {
+                var fileType = $("#fileType").val();
+                var fileNum = $("#fileNum").val();
+                if (fileType == "" || fileNum == "") {
+                    console.log("先填写文件相关信息");
+                    return;
+                }
+                var fileContent = $("#fileContent").val();
+                if (fileContent == "") {
+                    console.log("请填写文件内容");
+                }
+                try {
+                    JSON.parse(fileContent);
+                } catch (e) {
+                    console.log("json格式错误");
+                    return;
+                }
+                var fileName = "App_Data/" + fileType + "_" + fileNum;
+                $.ajax({
+                    url: "/TxtConfig/SaveFile",
+                    type: "post",
+                    dataType: "json",
+                    data: { fileName, fileContent },
+                    success: function (data) {
+                        if (data.code == 200) {
+                            $("#fileContent").val("");
+                            console.log("保存成功");
+                        } else {
+                            console.log(data.msg);
+                        }
+                    }
+                });
+            })
+            $("#btnJson").unbind().bind("click", function () {
+                var fileContent = $("#fileContent").val();
+                try {
+                    fileContent = JSON.parse(fileContent);
+                } catch (e) {
+                    console.log("json格式错误");
+                    return;
+                }
+                $("#fileContent").val(JSON.stringify(fileContent, null, 4));
+            });
+        })
+    </script>
+</body>
+</html>

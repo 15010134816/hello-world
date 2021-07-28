@@ -14,8 +14,6 @@ namespace Common
 
         /// <summary>
         /// 将string类型转换成int类型
-        /// 创建者：韦文观
-        /// 创建时间：2017-6-19 18:55:43
         /// </summary>
         /// <param name="s">目标字符串</param>
         /// <param name="defaultValue">默认值</param>
@@ -34,8 +32,6 @@ namespace Common
 
         /// <summary>
         /// 将string类型转换成int类型
-        /// 创建者：韦文观
-        /// 创建时间：2017-6-19 18:57:06
         /// </summary>
         /// <param name="s">目标字符串</param>
         /// <returns></returns>
@@ -46,8 +42,6 @@ namespace Common
 
         /// <summary>
         /// 将object类型转换成int类型
-        /// 创建者：韦文观
-        /// 创建时间：2017-6-19 18:57:27
         /// </summary>
         /// <param name="s">目标对象</param>
         /// <param name="defaultValue">默认值</param>
@@ -62,8 +56,6 @@ namespace Common
 
         /// <summary>
         /// 将object类型转换成int类型
-        /// 创建者：韦文观
-        /// 创建时间：2017-6-19 18:57:49
         /// </summary>
         /// <param name="s">目标对象</param>
         /// <returns></returns>
@@ -77,8 +69,6 @@ namespace Common
         #region 转float
         /// <summary>
         /// 将object类型转换成int类型
-        /// 创建者：莫伟文
-        /// 创建时间：2017-6-19 18:55:43
         /// </summary>
         /// <param name="s">目标字符串</param>
         /// <param name="defaultValue">默认值</param>
@@ -101,8 +91,6 @@ namespace Common
 
         /// <summary>
         /// 将string类型转换成bool类型
-        /// 创建者：韦文观
-        /// 创建时间：2017-6-19 18:59:12
         /// </summary>
         /// <param name="s">目标字符串</param>
         /// <param name="defaultValue">默认值</param>
@@ -119,8 +107,6 @@ namespace Common
 
         /// <summary>
         /// 将string类型转换成bool类型
-        /// 创建者：韦文观
-        /// 创建时间：2017-6-19 18:59:44
         /// </summary>
         /// <param name="s">目标字符串</param>
         /// <returns></returns>
@@ -131,8 +117,6 @@ namespace Common
 
         /// <summary>
         /// 将object类型转换成bool类型
-        /// 创建者：韦文观
-        /// 创建时间：2017-6-19 19:06:01
         /// </summary>
         /// <param name="s">目标对象</param>
         /// <param name="defaultValue">默认值</param>
@@ -147,8 +131,6 @@ namespace Common
 
         /// <summary>
         /// 将object类型转换成bool类型
-        /// 创建者：韦文观
-        /// 创建时间：2017-6-19 19:07:50
         /// </summary>
         /// <param name="s">目标对象</param>
         /// <returns></returns>
@@ -163,8 +145,6 @@ namespace Common
 
         /// <summary>
         /// 将string类型转换成datetime类型
-        /// 创建者：韦文观
-        /// 创建时间：2017-6-19 19:08:19
         /// </summary>
         /// <param name="s">目标字符串</param>
         /// <param name="defaultValue">默认值</param>
@@ -182,8 +162,6 @@ namespace Common
 
         /// <summary>
         /// 将datetime类型转换成string类型 yyyy-MM-dd
-        /// 创建者：莫伟文
-        /// 创建时间：2017-6-19 19:08:19
         /// </summary>
         /// <param name="s">目标字符串</param>
         /// <param name="defaultValue">默认值</param>
@@ -201,8 +179,6 @@ namespace Common
 
         /// <summary>
         /// 将string类型转换成datetime类型
-        /// 创建者：韦文观
-        /// 创建时间：2017-6-19 19:09:33
         /// </summary>
         /// <param name="s">目标字符串</param>
         /// <returns></returns>
@@ -213,8 +189,6 @@ namespace Common
 
         /// <summary>
         /// 将object类型转换成datetime类型
-        /// 创建者：韦文观
-        /// 创建时间：2017-6-19 19:09:50
         /// </summary>
         /// <param name="s">目标对象</param>
         /// <param name="defaultValue">默认值</param>
@@ -229,8 +203,6 @@ namespace Common
 
         /// <summary>
         /// 将object类型转换成datetime类型
-        /// 创建者：韦文观
-        /// 创建时间：2017-6-19 19:10:05
         /// </summary>
         /// <param name="s">目标对象</param>
         /// <returns></returns>
@@ -245,8 +217,6 @@ namespace Common
 
         /// <summary>
         /// 将string类型转换成decimal类型
-        /// 创建者：韦文观
-        /// 创建时间：2017-6-19 19:10:22
         /// </summary>
         /// <param name="s">目标字符串</param>
         /// <param name="defaultValue">默认值</param>
@@ -265,8 +235,6 @@ namespace Common
 
         /// <summary>
         /// 将string类型转换成decimal类型
-        /// 创建者：韦文观
-        /// 创建时间
         /// </summary>
         /// <param name="s">目标字符串</param>
         /// <returns></returns>
@@ -277,8 +245,6 @@ namespace Common
 
         /// <summary>
         /// 将object类型转换成decimal类型
-        /// 创建者：韦文观
-        /// 创建时间：2017-6-19 19:10:48
         /// </summary>
         /// <param name="s">目标对象</param>
         /// <param name="defaultValue">默认值</param>
@@ -293,8 +259,6 @@ namespace Common
 
         /// <summary>
         /// 将object类型转换成decimal类型
-        /// 创建者：韦文观
-        /// 创建时间：2017-6-19 19:11:04
         /// </summary>
         /// <param name="s">目标对象</param>
         /// <returns></returns>
@@ -308,8 +272,6 @@ namespace Common
         #region 转ToString
         /// <summary>
         /// 将object类型转换成ToString类型
-        /// 创建者：韦文观
-        /// 创建时间：2017-6-19 19:11:04
         /// </summary>
         /// <param name="s">目标对象</param>
         /// <returns></returns>
@@ -320,8 +282,6 @@ namespace Common
 
         /// <summary>
         /// 将object类型转换成ToString类型
-        /// 创建者：韦文观
-        /// 创建时间：2017-6-19 19:11:04
         /// </summary>
         /// <param name="s">目标对象</param>
         /// <returns></returns>

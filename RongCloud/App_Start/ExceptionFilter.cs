@@ -14,7 +14,8 @@ namespace RongCloud
         public override void OnException(ExceptionContext filterContext)
         {
             var ex = filterContext.Exception;
-            Common.LogHelper.WriteLog(this.GetType().ToString(), ex, Common.LogPath.Logs_RongIM);
+            //Common.LogHelper.WriteLog(this.GetType().ToString(), ex, Common.LogPath.Logs_RongIM);
+            Common.LogHelper.log.Error(ex.Message, ex);
             var code = new HttpException(null, ex.InnerException).GetHttpCode();
             if (filterContext.HttpContext.Request.IsAjaxRequest())
             {

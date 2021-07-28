@@ -1,8 +1,10 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Common
@@ -37,6 +39,10 @@ namespace Common
     /// </summary>
     public class LogHelper
     {
+        /// <summary>
+        /// log4net 记录器
+        /// </summary>
+        public static readonly ILog log = LogManager.GetLogger("loginfo");
         /// <summary>
         /// 写入异常日志
         /// </summary>
@@ -86,6 +92,33 @@ namespace Common
                 WriteLog(type, className, content, path);
             }
         }
+        public static void WriteLog4Net(string className, string content, LogType logType, LogPath logPath = LogPath.Logs, bool isAsync = true)
+        {
+            if (LogType.Error == logType)
+            {
+                log.Error(content);
+            }
+            else
+            {
+                log.Info(content);
+            }
+        }
+        /// <summary>
+        /// 异步写入日志
+        /// </summary>
+        /// <param name="type">日志类型</param>
+        /// <param name="className">类名</param>
+        /// <param name="content">日志内容</param>
+        /// <param name="path">保存日志的绝对路径</param>
+        public static async void WriteLogAsync(string className, string content, LogType logType, LogPath logPath = LogPath.Logs)
+        {
+            var type = logType.ToString();
+            var path = AppDomain.CurrentDomain.BaseDirectory + logPath.ToString() + "/" + type;
+            await Task.Run(() =>
+            {
+                WriteLog(type, className, content, path);
+            });
+        }
 
         /// <summary>
         /// 异步写入日志
@@ -125,16 +158,29 @@ namespace Common
                 File.Delete(filename2); //删除三个月前的日志文件
             }
 
-            //创建或打开日志文件，向日志文件末尾追加记录
-            StreamWriter mySw = File.AppendText(filename);
+            ////创建或打开日志文件，向日志文件末尾追加记录
+            //StreamWriter mySw = File.AppendText(filename);
 
-            //向日志文件写入内容
+            ////向日志文件写入内容
+            //string write_content = time + " " + type + " " + className + ": " + content;
+            //mySw.WriteLine("WriteLog ThreadId:" + Thread.CurrentThread.ManagedThreadId);
+            //mySw.WriteLine(write_content);
+            //mySw.WriteLine();
+
+            ////关闭日志文件
+            //mySw.Close();
+
             string write_content = time + " " + type + " " + className + ": " + content;
-            mySw.WriteLine(write_content);
-            mySw.WriteLine();
-
-            //关闭日志文件
-            mySw.Close();
+            using (FileStream fs = new FileStream(filename, FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
+            {
+                using (StreamWriter sw = new StreamWriter(fs))
+                {
+                    sw.WriteLine("WriteLog ThreadId:" + Thread.CurrentThread.ManagedThreadId);
+                    sw.WriteLine(write_content);
+                    sw.WriteLine();
+                    sw.Flush();
+                }
+            }
         }
     }
 }

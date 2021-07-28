@@ -59,6 +59,22 @@ namespace Common
                 return _AppSecret_RongCloud;
             }
         }
+
+        private static int _userInfoDtCount;
+        /// <summary>
+        /// 表的数量
+        /// </summary>
+        public static int UserInfoDtCount
+        {
+            get
+            {
+                if (_userInfoDtCount == 0)
+                {
+                    _userInfoDtCount = Convert.ToInt32(ConfigurationManager.AppSettings["UserInfoCount"]);
+                }
+                return _userInfoDtCount;
+            }
+        }
     }
 
 }
