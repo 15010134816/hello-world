@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="shortcut icon" href="../assets/img/SealTalk.ico" />
+  <link rel="stylesheet" href="../assets/css/download.css">
+  <title>SealTalk</title>
+</head>
+<body>
+  <div class="page-demo">
+    <div class="wrapper">
+      <span id="WeXinNavi" class="rong-navi-content" style="display: none;">点击左上角, 在浏览器中打开</span>
+      <div class="rong-page-content">
+        <div class="logo"></div>
+        <div class="title">IM 即时通讯 - SealTalk</div>
+        <div class="describe">
+          <p>支持应用内社交等场景，体验单群聊、聊天室、音视频通话、红包、小视频、动态表情等通讯能力</p>
+        </div>
+        <div class="download">
+          <div class="item">
+            <a class="btn" onclick="is_weixin('http://cdn.ronghub.com/SealTalk_by_RongCloud_Android_v2.0.0.apk')">
+              <div>
+                <img src="https://rongcloud-res.cn.ronghub.com/7ac510c641987c72394c219824559937" alt="">
+                <span>Android 下载</span>
+              </div>
+            </a>
+          </div>
+          <div class="item">
+            <a class="btn"
+              onclick="is_weixin('itms-services://?action=download-manifest&amp;url=https://cdn.ronghub.com/app_sealtalk.plist')">
+              <div>
+                <img src="https://rongcloud-res.cn.ronghub.com/54be71d1a57130e1ad259c61b04ae84e" alt="">
+                <span>iOS 下载</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+function getBrowser() {
+  var userAgent = window.navigator.userAgent;
+  var version;
+  var type;
+
+  /* 记录各浏览器名字和匹配条件 */
+  var condition = {
+    IE: /rv:([\d.]+)\) like Gecko|MSIE ([\d.]+)/,
+    Edge: /Edge\/([\d.]+)/,
+    Firefox: /Firefox\/([\d.]+)/,
+    Opera: /(?:OPERA|OPR).([\d.]+)/,
+    WeChat: /MicroMessenger/i,
+    QQBrowser: /QQBrowser\/([\d.]+)/,
+    Chrome: /Chrome\/([\d.]+)/,
+    Safari: /Version\/([\d.]+).*Safari/,
+    iOSChrome: /Mobile\/([\d.]+).*Safari/
+  };
+
+  for (var key in condition) {
+    if (!condition.hasOwnProperty(key)) continue;
+    var browserContent;
+    if (browserContent = userAgent.match(condition[key])) {
+      type = key;
+      version = browserContent[1] || browserContent[2];
+      break;
+    }
+  }
+  return {
+    type: type ? type : 'UnKonw',
+    version: version ? version : 'UnKonw'
+  };
+}
+
+var type = getBrowser().type,
+  isWeChat = type === 'WeChat';
+
+if (isWeChat) {
+  var naviEl = document.getElementById('WeXinNavi');
+  naviEl.style.display = 'block';
+}
+
+function is_weixin(url) {
+  var ua = navigator.userAgent.toLowerCase();
+  if (ua.match(/MicroMessenger/i) == "micromessenger") {
+    document.getElementById("share").style.display = "block";
+    return false
+  } else {
+    window.location.href = url;
+    return true
+  }
+}
+</script>
+
+<script>
+  (function () {
+    var createIframe = function (url) {
+      var iframe;
+      try {
+        iframe = document.createElement('<iframe></iframe>');
+        iframe.src = url;
+      } catch (e) {
+        iframe = document.createElement('iframe');
+        iframe.src = url;
+      }
+      if (iframe) {
+        document.body.appendChild(iframe);
+      }
+    };
+
+    var key = '?key=', spaceKey = '?s=';
+    var search = window.location.search;
+    var subIndex;
+    if (search.indexOf(key) !== -1) {
+      subIndex = search.indexOf(key) + key.length;
+    } else if (search.indexOf(spaceKey) !== -1) {
+      subIndex = search.indexOf(spaceKey) + spaceKey.length;
+    }
+    if (subIndex) {
+      var url = search.substring(subIndex);
+      window.location.href = url;
+      createIframe(url);
+    }
+  })();
+</script>
+
+</html>

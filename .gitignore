@@ -1,0 +1,11 @@
+Common/bin
+Common/obj
+RongCloud/bin
+RongCloud/obj
+RongCloud/Logs_RongIM
+RongCloud/Logs
+RongCloud/Properties/PublishProfiles
+RongIM/bin
+RongIM/obj
+Packages
+RongCloud.csproj.user

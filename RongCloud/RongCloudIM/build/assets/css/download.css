@@ -1,0 +1,291 @@
+@charset "UTF-8";
+/* 清除内外边距 */
+body, div, h1, h2, h3, h4, h5, h6, hr, p, blockquote,
+dl, dt, dd, ul, ol, li,
+pre,
+fieldset, lengend, button, input, textarea, form,
+th, td {
+  /* table elements 表格元素 */
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 设置默认字体 */
+body, button, input, select, textarea {
+  /* for ie */
+  color: #272727;
+  font: 0.373rem/1.42857143  "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  outline: 0;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-appearance: none;
+}
+
+code, kbd, pre, samp, tt {
+  font-family: "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+
+/* 重置列表元素 */
+ul, ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+/* 重置表格元素 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  vertical-align: top;
+  border: 0;
+}
+
+a {
+  color: #2b98fc;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #fff;
+  text-decoration: none;
+  outline: none;
+}
+
+a:visited {
+  /*color: #272727;*/
+}
+
+@media only screen and (max-width: 319px) {
+  /*老式安卓手机                 */
+  html {
+    font-size: 31.9px;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 360px) {
+  /*iphone4/4s/5/5s竖屏         */
+  html {
+    font-size: 32px;
+  }
+}
+
+@media only screen and (min-width: 360px) and (max-width: 375px) {
+  /*小米、三星note系列专用竖屏    */
+  html {
+    font-size: 36px;
+  }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 414px) {
+  /*iphone6                    */
+  html {
+    font-size: 37.5px;
+  }
+}
+
+@media only screen and (min-width: 414px) and (max-width: 481px) {
+  /*iphone6 plus               */
+  html {
+    font-size: 41.4px;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 500px) {
+  /*大部分安卓手机以及其他手机      */
+  html {
+    font-size: 48.1px;
+  }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 600px) {
+  /*大部分安卓手机以及其他手机      */
+  html {
+    font-size: 50px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 700px) {
+  /*大部分安卓手机以及其他手机      */
+  html {
+    font-size: 60px;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  /*大部分安卓手机以及其他手机      */
+  html {
+    font-size: 40px;
+  }
+}
+
+/*@media only screen and (min-device-width:390px) and (max-device-width:700px){
+    html { font-size: 41.4px; }
+}*/
+/*@media only screen and ( min-width:414px ) and (max-width: 481px) and (min-resolution: 160dpi){
+    html { font-size: 82.8px; }
+}
+@media only screen and ( min-width:360px ) and (max-width: 375px) and (min-resolution: 160dpi){
+    html { font-size: 72px; }
+}*/
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+.page-demo {
+  background: #135dff url(../img/download/back.jpg) no-repeat right top;
+  -webkit-background-size: 5.86rem auto;
+  background-size: 5.86rem auto;
+  height: 100%;
+}
+
+.page-demo .wrapper {
+  background: url(../img/download/demo-warpper.jpg) no-repeat left bottom;
+  -webkit-background-size: 6.74rem auto;
+  background-size: 6.74rem auto;
+  position: relative;
+  height: 100%;
+}
+
+.page-demo .logo {
+  /*padding-top: 1.5rem;*/
+  width: 3.58rem;
+  height: 1.4rem;
+  background: url(../img/download/demo-logo.png) no-repeat left top;
+  -webkit-background-size: 3.58rem auto;
+  background-size: 3.58rem auto;
+}
+
+.page-demo .title {
+  padding-top: 0.8rem;
+  padding-bottom: 0.3rem;
+  font-size: 0.6rem;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.page-demo .describe {
+  padding-bottom: 1.2rem;
+}
+
+.page-demo .describe p {
+  color: #fff;
+  font-size: 0.4rem;
+  padding-bottom: 0.3rem;
+  line-height: 0.68rem;
+}
+
+.page-demo .download .item .btn {
+  display: block;
+  margin: 0 auto 0.7rem;
+  width: 6.69rem;
+  height: 1.2rem;
+  border: 1px solid #fff;
+  border-radius: 2rem;
+  text-align: center;
+  font-size: 0.46rem;
+  color: #135dff;
+  line-height: 1.2rem;
+  background: #fff;
+}
+
+.page-demo .download .item .btn img {
+  display: inline-block;
+  width: 0.58rem;
+  /*height: 0.58rem;*/
+  vertical-align: middle;
+  margin-right: 0.3rem;
+}
+
+.page-demo .download .item .btn span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.page-demo .link {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 6.69rem;
+  margin: 0 auto;
+}
+
+.page-demo .link a {
+  color: #fff;
+}
+
+.page-demo .link a:after {
+  content: '';
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.33rem;
+  vertical-align: middle;
+  background: url(/m/images/demo-arrow.png) no-repeat center center;
+  -webkit-background-size: 0.4rem auto;
+  background-size: 0.4rem auto;
+}
+
+.page-demo .detail {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  -webkit-transform: translate(-50%);
+  bottom: 0;
+  text-align: center;
+  color: #fff;
+  font-size: 0.4rem;
+  padding-bottom: 0.8rem;
+}
+
+@media only screen and (min-width: 700px) {
+  /*大部分安卓手机以及其他手机      */
+  .page-demo {
+    text-align: center;
+  }
+  .page-demo .logo {
+    margin: 0 auto;
+  }
+}
+
+.rong-page-content {
+  position: absolute;
+  top: 41%;
+  transform: translate(-50%, -50%);
+  padding: 1.5rem 0.45rem 0;
+  left: 50%;
+}
+
+.rong-navi-content {
+  position: absolute;
+  top: 1rem;
+  right: 1.6rem;
+  color: white;
+  font-size: 0.4rem;
+  text-align: center;
+}
+
+.rong-navi-content::after {
+  content: '';
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background-image: url(../img/download/arrow.png);
+  position: absolute;
+  right: -1.2rem;
+  z-index: 999;
+  background-size: cover;
+  bottom: 0.2rem;
+}

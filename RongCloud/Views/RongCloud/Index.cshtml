@@ -1,0 +1,305 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <!-- 压缩版 -->
+    @*<script src="https://cdn.ronghub.com/RongIMLib-4.4.1.prod.js"></script>*@
+</head>
+<body>
+    <div><a href="~/RongCloudIM/build/#/account/signin" id="imlink">融云IM</a></div>
+    <div>
+        userId<input type="text" id="userId" />昵称<input type="text" id="name" /><input type="button" value="注册" onclick="Register()" />
+    </div>
+    <div id="userDiv">
+        <table>
+            <thead>
+                <tr>
+                    <td>去聊天</td>
+                    <td>昵称</td>
+                    <td>userId</td>
+                    <td>token</td>
+                    <td>创建时间</td>
+                </tr>
+            </thead>
+            <tbody id="userTbody"></tbody>
+        </table>
+    </div>
+    <div id="msgDiv">
+    </div>
+
+    <script type="text/javascript">
+        var _userId = "@ViewBag.UserId";
+        var _tokenArr = {
+            "388f548d-733a-4a76-8385-f1618d173838": "PUg3qJ702LeAtC2FvAqgBbFfoMjOYMh75dsSyfgs92i1PCaQbpZtPXUUVDdeAzsT8bFIhiqEo6Dr3FI86lwRRA==@@dwwm.cn.rongnav.com;dwwm.cn.rongcfg.com",
+            "38f916fe-db4d-41e2-b163-ee24a4481c2a": "3Pki71izupBQ/HCUjGC0gupt62k/pQO0IO0x+m8X8I8M5vOluaLA13UUVDdeAzsTVwS6uPykDU7xuGnJZeSlvw==@@dwwm.cn.rongnav.com;dwwm.cn.rongcfg.com",
+            "46F51AC6-256A-4C57-AAFA-87495670B1D0":"mz2X6Q4nWJNLsSd9+yVYfyyyuKCis48D3+oLIfKPK/IDqqCSN92XZnUUVDdeAzsTZLcT+8BWLWPG45q1RStoQw==@@dwwm.cn.rongnav.com;dwwm.cn.rongcfg.com"
+        };
+        var _token = _tokenArr[_userId];
+        var _existedConversationList = [];
+        //#region
+        // 应用初始化以获取 RongIMLib 实例对象，请务必保证此过程只被执行一次,连接类型推荐使用comet
+        //const im = RongIMLib.init({ appkey: '3argexb63f5le' });
+        //// 添加事件监听
+        //im.watch({
+        //    // 监听会话列表变更事件
+        //    conversation(event) {
+        //        // 假定存在 getExistedConversationList 方法，以获取当前已存在的会话列表数据
+        //        const conversationList = getExistedConversationList()
+        //        // 发生变更的会话列表
+        //        const updatedConversationList = event.updatedConversationList;
+        //        // 通过 im.Conversation.merge 计算最新的会话列表
+        //        const latestConversationList = im.Conversation.merge({ conversationList, updatedConversationList })
+        //    },
+        //    // 监听消息通知
+        //    message(event) {
+        //        // 新接收到的消息内容
+        //        const message = event.message;
+        //        if (message.messageType !="RC:ReadNtf") {
+        //            if (message.messageType == "RC:ImgMsg") {
+        //                $("#msgDiv").append(` <div>${message.senderUserId}:<img src="${message.content.imageUri}" /></div>`);
+        //            } else
+        //                $("#msgDiv").append(` <div>${message.senderUserId}:${message.content.content}</div>`);
+        //            console.log("message", message);
+        //            Notice(message);
+        //        }
+        //    },
+        //    // 监听 IM 连接状态变化
+        //    status(event) {
+        //        console.log('connection status:', event.status);
+        //    },
+        //    // 监听聊天室 KV 数据变更
+        //    chatroom(event) {
+        //        /**
+        //         * 聊天室 KV 存储数据更新
+        //         * example
+        //         * [
+        //         *  {
+        //         *    "key": "name",
+        //         *    "value": "我是小融融",
+        //         *    "timestamp": 1597591258338,
+        //         *    "chatroomId": "z002",
+        //         *    "type": 1 // 1: 更新（ 含:修改和新增 ）、2: 删除
+        //         *  },
+        //         * ]
+        //         */
+        //        const updatedEntries = event.updatedEntries
+        //    },
+        //    expansion(event) {
+        //        /**
+        //         * 更新的消息拓展数据
+        //         * example {
+        //         *    expansion: { key: 'value' },      // 设置或更新的扩展值
+        //         *    messageUId: 'URIT-URIT-ODMF-DURR' // 设置或更新扩展的消息 uid
+        //         * }
+        //         */
+        //        const updatedExpansion = event.updatedExpansion;
+        //        /**
+        //         * 删除的消息拓展数据
+        //         * example {
+        //         *    deletedKeys: ['key1', 'key2'],    // 设置或更新的扩展值
+        //         *    messageUId: 'URIT-URIT-ODMF-DURR' // 设置或更新扩展的消息 uid
+        //         * }
+        //         */
+        //        const deletedExpansion = event.deletedExpansion;
+        //    }
+        //});
+        //#endregion
+        $(function () {
+            var pars = {
+                method: "Func",
+                proc: "GetAllUser",
+                pars: [{
+                    userid: _userId
+                }]
+            };
+            $.ajax({
+                url: "/RongCloudAPI/DoWork",
+                data: { pars: JSON.stringify(pars) },
+                dataType: "json",
+                type: "post",
+                success: function (data) {
+                    if (data.result == 0) {
+                        $("#userTbody").html("");
+                        $.each(data.msg, function (i, item) {
+                            $("#userTbody").append(`<tr><td><input type="button" value="去聊天" onclick="ToChat('${item.UserId}','${item.Token}')" /></td><td>${item.Name}</td><td>${item.UserId}</td><td>${item.Token}</td><td>${item.CreateTime}</td></tr>`);
+                            _tokenArr[item.UserId] = item.Token;
+                        });
+                        console.log(_tokenArr);
+                    } else {
+                        console.log(data.msg);
+                    }
+                }
+            })
+            if (_userId == "") {
+                $("#imlink").hide();
+                console.log("未提供userId");
+                return;
+            }
+            $("#imlink").show();
+            if (!_token || _token == "") {
+                GetToken(_userId, '@ViewBag.Name');
+            } else {
+                IMConnect();
+            }
+        });
+        function GetToken(userId, name,callback) {
+            var pars = {
+                method: "Func",
+                proc: "GetToken",
+                pars: [{
+                    userid: userId,
+                    name: name,
+                    portrait_path: ""
+                }]
+            };
+            $.ajax({
+                url: "/RongCloudAPI/DoWork",
+                data: { pars: JSON.stringify(pars) },
+                dataType: "json",
+                type: "post",
+                success: function (data) {
+                    if (data.result == 0) {
+                        _token = data.msg;
+                        if (callback) {
+                            callback();
+                        }
+                        IMConnect();
+                    } else
+                        console.log(data.msg);
+                }
+            });
+        }
+        function IMConnect() {
+            localStorage.removeItem("RongIMUserId");
+            localStorage.removeItem("RongIMToken");
+            console.log("token:", _token);
+            localStorage.setItem("RongIMUserId", _userId);
+            localStorage.setItem("RongIMToken", _token);
+            //im.connect({ token: _token }).then(user => {
+            //    console.log('链接成功, 链接用户 id 为: ', user.id);
+            //    localStorage.setItem("RongIMUserId", user.id);
+            //    localStorage.setItem("RongIMToken", _token);
+            //    // 获取会话列表
+            //    im.Conversation.getList().then(conversationList => {
+            //        _existedConversationList = conversationList;
+            //        console.log('获取会话列表成功', conversationList);
+            //    }).catch(error => {
+            //        console.log('获取会话列表失败: ', error.code, error.msg);
+            //        });
+            //    im.Conversation.getTotalUnreadCount().then(function (totalUnreadCount) {
+            //        console.log('获取未读总数成功', totalUnreadCount);
+            //    });
+            //    //// 注: im 实例通过 RongIMLib.init 获取(单个页面仅需初始化一次)
+            //    //const conversation = im.Conversation.get({
+            //    //    targetId: '388f548d-733a-4a76-8385-f1618d173838',
+            //    //    type: RongIMLib.CONVERSATION_TYPE.PRIVATE
+            //    //});
+            //    //console.log("私聊会话", conversation);
+            //    //var option = {
+            //    //    timestamp: +new Date(),
+            //    //    count: 20
+            //    //};
+            //    //conversation.getMessages(option).then(function (result) {
+            //    //    var list = result.list; // 历史消息列表
+            //    //    var hasMore = result.hasMore; // 是否还有历史消息可以获取
+            //    //    console.log('获取历史消息成功', list, hasMore);
+            //    //});
+
+            //}).catch(error => {
+            //    console.log('链接失败: ', error.code, error.msg);
+            //});
+        }
+        function Notice(message) {
+            if (window.Notification && Notification.permission !== "denied") {
+                Notification.requestPermission(function (status) {
+                    var n = new Notification('新消息', { body: message.content.content });
+                });
+            }
+        }
+
+        //function SendMsg(userId,content) {
+        //    var conversation = im.Conversation.get({
+        //        targetId: userId,//'接收方的 userId'
+        //        type: RongIMLib.CONVERSATION_TYPE.PRIVATE
+        //    });
+        //    if (!content) {
+        //        content = { // 填写开发者定义的消息内容
+        //            content: 'RongCloud IM'
+        //        }
+        //    }
+        //    conversation.send({
+        //        messageType: 's:person', // 填写开发者定义的 messageType
+        //        content: content,
+        //        isPersited: true,// 是否存储在服务端,默认为 true
+        //        isCounted: true,  // 是否计数. 计数消息接收端接收后未读数加 1，默认为 true
+        //        pushContent: 'user 发送了一条消息',  // Push 显示内容
+        //        pushData: 'Push 通知时附加信息',  // Push 通知时附加信息, 可不填
+        //        isStatusMessage: false, // 设置为 true 后 isPersited 和 isCounted 属性失效
+        //        disableNotification: false, // 设置为 true 后移动端不会收到 Push 信息和本地通知提醒
+        //    }).then(function (message) {
+        //        console.log('发送 s:person 消息成功', message);
+        //        $("#msgDiv").append(` <div>${_userId}:${content.content}</div>`);
+        //    });
+
+        //}
+        function getExistedConversationList() {
+            return _existedConversationList;
+        }
+        function Register() {
+            var userId = $("#userId").val();
+            var name = $("#name").val();
+            if (userId == "") {
+                return;
+            }
+            if (name == "") {
+                return;
+            }
+            GetToken(userId, name, function () {
+                window.location.href = "/RongCloud?userId=" + userId + "&name=" + name;
+            });
+        }
+        function ToChat(userId, token) {
+            localStorage.removeItem("RongIMUserId");
+            localStorage.removeItem("RongIMToken");
+            localStorage.setItem("RongIMUserId", userId);
+            localStorage.setItem("RongIMToken", token);
+            $.post("/RongCloud/SetCookie", { userId }, function (data) {
+                if (data.result) {
+                    location.href = "/RongCloudIM/build/#/account/signin";
+                } else {
+                    console.log(data.msg);
+                }
+            })
+        }
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
+</body>
+</html>

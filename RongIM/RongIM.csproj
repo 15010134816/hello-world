@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A7355CBB-491A-4E00-9188-B9D2D19AA0A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RongIM</RootNamespace>
+    <AssemblyName>RongIM</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="example\chatroom\BanExample.cs" />
+    <Compile Include="example\chatroom\BlockExample.cs" />
+    <Compile Include="example\chatroom\ChatroomExample.cs" />
+    <Compile Include="example\chatroom\DemotionExample.cs" />
+    <Compile Include="example\chatroom\DistributeExample.cs" />
+    <Compile Include="example\chatroom\GagExample.cs" />
+    <Compile Include="example\chatroom\KeepaliveExample.cs" />
+    <Compile Include="example\chatroom\whitelist\MessageExample.cs" />
+    <Compile Include="example\chatroom\whitelist\UserExample.cs" />
+    <Compile Include="example\conversation\ConversationExample.cs" />
+    <Compile Include="example\group\GagExample.cs" />
+    <Compile Include="example\group\GroupExample.cs" />
+    <Compile Include="example\messages\MessageExample.cs" />
+    <Compile Include="example\push\PushExample.cs" />
+    <Compile Include="example\sensitive\SensitiveExample.cs" />
+    <Compile Include="example\user\BlackListExample.cs" />
+    <Compile Include="example\user\BlockExample.cs" />
+    <Compile Include="example\user\UserExample.cs" />
+    <Compile Include="exception\Error.cs" />
+    <Compile Include="exception\ParamError.cs" />
+    <Compile Include="exception\ParamException.cs" />
+    <Compile Include="exception\RcloudException.cs" />
+    <Compile Include="messages\BaseMessage.cs" />
+    <Compile Include="messages\CmdMsgMessage.cs" />
+    <Compile Include="messages\CmdNtfMessage.cs" />
+    <Compile Include="messages\ContactNtfMessage.cs" />
+    <Compile Include="messages\CustomTxtMessage.cs" />
+    <Compile Include="messages\ImgMessage.cs" />
+    <Compile Include="messages\ImgTextMessage.cs" />
+    <Compile Include="messages\InfoNtfMessage.cs" />
+    <Compile Include="messages\LBSMessage.cs" />
+    <Compile Include="messages\ProfileNtfMessage.cs" />
+    <Compile Include="messages\TxtMessage.cs" />
+    <Compile Include="messages\VoiceMessage.cs" />
+    <Compile Include="methods\chatroom\ban\Ban.cs" />
+    <Compile Include="methods\chatroom\block\Block.cs" />
+    <Compile Include="methods\chatroom\Chatroom.cs" />
+    <Compile Include="methods\chatroom\demotion\Demotion.cs" />
+    <Compile Include="methods\chatroom\distribute\Distribute.cs" />
+    <Compile Include="methods\chatroom\gag\Gag.cs" />
+    <Compile Include="methods\chatroom\keepalive\Keepalive.cs" />
+    <Compile Include="methods\chatroom\whitelist\Messages.cs" />
+    <Compile Include="methods\chatroom\whitelist\User.cs" />
+    <Compile Include="methods\chatroom\whitelist\Whitelist.cs" />
+    <Compile Include="methods\conversation\Conversation.cs" />
+    <Compile Include="methods\group\gag\Gag.cs" />
+    <Compile Include="methods\group\Group.cs" />
+    <Compile Include="models\group\GroupMemberModel.cs" />
+    <Compile Include="methods\message\chatroom\Chatroom.cs" />
+    <Compile Include="methods\message\discussion\Discussion.cs" />
+    <Compile Include="methods\message\group\Group.cs" />
+    <Compile Include="methods\message\history\History.cs" />
+    <Compile Include="methods\message\Message.cs" />
+    <Compile Include="methods\message\system\MsgSystem.cs" />
+    <Compile Include="methods\message\_private\Private.cs" />
+    <Compile Include="methods\push\Broadcast.cs" />
+    <Compile Include="methods\push\Push.cs" />
+    <Compile Include="methods\sensitive\SensitiveWord.cs" />
+    <Compile Include="methods\sensitive\Wordfilter.cs" />
+    <Compile Include="methods\user\blacklist\Blacklist.cs" />
+    <Compile Include="methods\user\block\Block.cs" />
+    <Compile Include="methods\user\onlineStatus\OnlineStatus.cs" />
+    <Compile Include="methods\user\tag\Tag.cs" />
+    <Compile Include="methods\user\User.cs" />
+    <Compile Include="models\BlockUsers.cs" />
+    <Compile Include="models\chatroom\ChatroomMember.cs" />
+    <Compile Include="models\chatroom\ChatroomModel.cs" />
+    <Compile Include="models\CheckMethod.cs" />
+    <Compile Include="models\conversation\ConversationModel.cs" />
+    <Compile Include="models\Friend\FriendShipModel.cs" />
+    <Compile Include="models\group\GroupMember.cs" />
+    <Compile Include="models\group\GroupModel.cs" />
+    <Compile Include="models\group\UserGroup.cs" />
+    <Compile Include="models\message\BroadcastMessage.cs" />
+    <Compile Include="models\message\ChatroomMessage.cs" />
+    <Compile Include="models\message\DiscussionMessage.cs" />
+    <Compile Include="models\message\GroupMessage.cs" />
+    <Compile Include="models\message\MentionedInfo.cs" />
+    <Compile Include="models\message\MentionMessage.cs" />
+    <Compile Include="models\message\MentionMessageContent.cs" />
+    <Compile Include="models\message\MessageModel.cs" />
+    <Compile Include="models\message\PrivateMessage.cs" />
+    <Compile Include="models\message\RecallMessage.cs" />
+    <Compile Include="models\message\SystemMessage.cs" />
+    <Compile Include="models\message\TemplateMessage.cs" />
+    <Compile Include="models\push\Audience.cs" />
+    <Compile Include="models\push\BroadcastModel.cs" />
+    <Compile Include="models\push\BroadcastPushPublicPart.cs" />
+    <Compile Include="models\push\Message.cs" />
+    <Compile Include="models\push\Notification.cs" />
+    <Compile Include="models\push\PlatformNotification.cs" />
+    <Compile Include="models\push\PushModel.cs" />
+    <Compile Include="models\response\BlackListResult.cs" />
+    <Compile Include="models\response\BlockUserList.cs" />
+    <Compile Include="models\response\BlockUserResult.cs" />
+    <Compile Include="models\response\ChatroomDemotionMsgResult.cs" />
+    <Compile Include="models\response\ChatroomKeepaliveResult.cs" />
+    <Compile Include="models\response\ChatroomQueryResult.cs" />
+    <Compile Include="models\response\ChatroomUserQueryResult.cs" />
+    <Compile Include="models\response\ChatroomWhitelistMsgResult.cs" />
+    <Compile Include="models\response\CheckChatRoomUserResult.cs" />
+    <Compile Include="models\response\CheckOnlineResult.cs" />
+    <Compile Include="models\response\GagGroupUser.cs" />
+    <Compile Include="models\response\GroupMemberResult.cs" />
+    <Compile Include="models\response\GroupUser.cs" />
+    <Compile Include="models\response\GroupUserQueryResult.cs" />
+    <Compile Include="models\response\GroupUserResult.cs" />
+    <Compile Include="models\response\HistoryMessageResult.cs" />
+    <Compile Include="models\response\ListBlockChatroomUserResult.cs" />
+    <Compile Include="models\response\ListGagChatroomUserResult.cs" />
+    <Compile Include="models\response\ListGagGroupUserResult.cs" />
+    <Compile Include="models\response\ListWordfilterResult.cs" />
+    <Compile Include="models\response\PushResult.cs" />
+    <Compile Include="models\response\ResponseResult.cs" />
+    <Compile Include="models\response\TagListResult.cs" />
+    <Compile Include="models\response\TokenResult.cs" />
+    <Compile Include="models\response\UserInfoResult.cs" />
+    <Compile Include="models\response\UserList.cs" />
+    <Compile Include="models\response\WhiteListResult.cs" />
+    <Compile Include="models\Result.cs" />
+    <Compile Include="models\sensitiveword\SensitiveWordModel.cs" />
+    <Compile Include="models\Templates.cs" />
+    <Compile Include="models\user\BlockUser.cs" />
+    <Compile Include="models\user\MyGroupsModel.cs" />
+    <Compile Include="models\user\tag\TagModel.cs" />
+    <Compile Include="models\user\UserInfoModel.cs" />
+    <Compile Include="models\user\UserModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RongCloud.cs" />
+    <Compile Include="util\CodeUtil.cs" />
+    <Compile Include="util\CommonUtil.cs" />
+    <Compile Include="util\HostType.cs" />
+    <Compile Include="util\RongHttpClient.cs" />
+    <Compile Include="util\RongJsonUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

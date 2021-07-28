@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B5B25E1D-5C51-4120-944C-87E83792A0A6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RongCloud</RootNamespace>
+    <AssemblyName>RongCloud</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.4\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.4\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\CrossDomainFilter.cs" />
+    <Compile Include="App_Start\ExceptionFilter.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\APP\APPAreaRegistration.cs" />
+    <Compile Include="Areas\APP\Controllers\FriendShipController.cs" />
+    <Compile Include="Areas\APP\Controllers\GroupController.cs" />
+    <Compile Include="Areas\APP\Controllers\MiscController.cs" />
+    <Compile Include="Areas\APP\Controllers\UserController.cs" />
+    <Compile Include="Controllers\FriendShipController.cs" />
+    <Compile Include="Controllers\GroupController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RongCloudAPIController.cs" />
+    <Compile Include="Controllers\RongCloudController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ResultInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RongCloudIM\RongCloudHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Error404.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="RongCloudIM\build\app.config.js" />
+    <Content Include="RongCloudIM\build\assets\css\download.css" />
+    <Content Include="RongCloudIM\build\assets\css\main.css" />
+    <Content Include="RongCloudIM\build\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="RongCloudIM\build\assets\img\arrow.png" />
+    <Content Include="RongCloudIM\build\assets\img\audioBg.png" />
+    <Content Include="RongCloudIM\build\assets\img\audioBg2.png" />
+    <Content Include="RongCloudIM\build\assets\img\barBg.png" />
+    <Content Include="RongCloudIM\build\assets\img\clear.png" />
+    <Content Include="RongCloudIM\build\assets\img\doc.png" />
+    <Content Include="RongCloudIM\build\assets\img\download\arrow.png" />
+    <Content Include="RongCloudIM\build\assets\img\download\back.jpg" />
+    <Content Include="RongCloudIM\build\assets\img\download\back.png" />
+    <Content Include="RongCloudIM\build\assets\img\download\demo-logo.png" />
+    <Content Include="RongCloudIM\build\assets\img\download\demo-warpper.jpg" />
+    <Content Include="RongCloudIM\build\assets\img\download\qrcode.png" />
+    <Content Include="RongCloudIM\build\assets\img\emptyBox.png" />
+    <Content Include="RongCloudIM\build\assets\img\header-logo.png" />
+    <Content Include="RongCloudIM\build\assets\img\icons.png" />
+    <Content Include="RongCloudIM\build\assets\img\imageText.png" />
+    <Content Include="RongCloudIM\build\assets\img\mp3.png" />
+    <Content Include="RongCloudIM\build\assets\img\mp4.png" />
+    <Content Include="RongCloudIM\build\assets\img\network.png" />
+    <Content Include="RongCloudIM\build\assets\img\noticeIcon.png" />
+    <Content Include="RongCloudIM\build\assets\img\panel.png" />
+    <Content Include="RongCloudIM\build\assets\img\pdf.png" />
+    <Content Include="RongCloudIM\build\assets\img\pic.png" />
+    <Content Include="RongCloudIM\build\assets\img\picWrapBg.png" />
+    <Content Include="RongCloudIM\build\assets\img\room_icon.png" />
+    <Content Include="RongCloudIM\build\assets\img\SealTalk.ico" />
+    <Content Include="RongCloudIM\build\assets\img\signBg.png" />
+    <Content Include="RongCloudIM\build\assets\img\sms-received.mp3" />
+    <Content Include="RongCloudIM\build\assets\img\txt.png" />
+    <Content Include="RongCloudIM\build\assets\img\undefined.png" />
+    <Content Include="RongCloudIM\build\assets\img\uploadbtn.png" />
+    <Content Include="RongCloudIM\build\assets\img\webBg.png" />
+    <Content Include="RongCloudIM\build\assets\img\xlsx.png" />
+    <Content Include="RongCloudIM\build\assets\js\angular-widget.min.js" />
+    <Content Include="RongCloudIM\build\assets\js\angular.min.js" />
+    <Content Include="RongCloudIM\build\assets\js\jquery.min.js" />
+    <Content Include="RongCloudIM\build\assets\js\main.min.js" />
+    <Content Include="RongCloudIM\build\assets\js\other.min.js" />
+    <Content Include="RongCloudIM\build\assets\js\protobuf-2.1.3.min.js" />
+    <Content Include="RongCloudIM\build\assets\js\protobuf-debug.js" />
+    <Content Include="RongCloudIM\build\assets\js\RongIMLib-2.2.2.js" />
+    <Content Include="RongCloudIM\build\assets\js\RongIMLib-2.5.0.js" />
+    <Content Include="RongCloudIM\build\assets\js\RongIMLib.js" />
+    <Content Include="RongCloudIM\build\assets\js\RongUploadLib.js" />
+    <Content Include="RongCloudIM\build\assets\js\skin\default\icon_ext.png" />
+    <Content Include="RongCloudIM\build\assets\js\skin\default\textbg.png" />
+    <Content Include="RongCloudIM\build\assets\js\skin\default\xubox_ico0.png" />
+    <Content Include="RongCloudIM\build\assets\js\skin\default\xubox_loading0.gif" />
+    <Content Include="RongCloudIM\build\assets\js\skin\default\xubox_loading1.gif" />
+    <Content Include="RongCloudIM\build\assets\js\skin\default\xubox_loading2.gif" />
+    <Content Include="RongCloudIM\build\assets\js\skin\default\xubox_loading3.gif" />
+    <Content Include="RongCloudIM\build\assets\js\skin\default\xubox_title0.png" />
+    <Content Include="RongCloudIM\build\assets\js\skin\default\xubox_title1.png" />
+    <Content Include="RongCloudIM\build\assets\js\skin\layer.css" />
+    <Content Include="RongCloudIM\build\assets\js\skin\layer.ext.css" />
+    <Content Include="RongCloudIM\build\assets\js\upload.js" />
+    <Content Include="RongCloudIM\build\assets\template\messagetemplate.html" />
+    <Content Include="RongCloudIM\build\assets\views\account.html" />
+    <Content Include="RongCloudIM\build\assets\views\applyfriend.html" />
+    <Content Include="RongCloudIM\build\assets\views\applygroup.html" />
+    <Content Include="RongCloudIM\build\assets\views\blacklist.html" />
+    <Content Include="RongCloudIM\build\assets\views\chatBox.html" />
+    <Content Include="RongCloudIM\build\assets\views\creatediscussion.html" />
+    <Content Include="RongCloudIM\build\assets\views\creategroup.html" />
+    <Content Include="RongCloudIM\build\assets\views\discussionaddmember.html" />
+    <Content Include="RongCloudIM\build\assets\views\discussioninfo.html" />
+    <Content Include="RongCloudIM\build\assets\views\editfriendinfo.html" />
+    <Content Include="RongCloudIM\build\assets\views\forgotpassword.html" />
+    <Content Include="RongCloudIM\build\assets\views\friendinfo.html" />
+    <Content Include="RongCloudIM\build\assets\views\groupaddmember.html" />
+    <Content Include="RongCloudIM\build\assets\views\groupbulletin.html" />
+    <Content Include="RongCloudIM\build\assets\views\groupinfo.html" />
+    <Content Include="RongCloudIM\build\assets\views\index.html" />
+    <Content Include="RongCloudIM\build\assets\views\main.html" />
+    <Content Include="RongCloudIM\build\assets\views\modifypassword.html" />
+    <Content Include="RongCloudIM\build\assets\views\notification.html" />
+    <Content Include="RongCloudIM\build\assets\views\resetpassword.html" />
+    <Content Include="RongCloudIM\build\assets\views\searchfriend.html" />
+    <Content Include="RongCloudIM\build\assets\views\searchgroup.html" />
+    <Content Include="RongCloudIM\build\assets\views\signin.html" />
+    <Content Include="RongCloudIM\build\assets\views\signup.html" />
+    <Content Include="RongCloudIM\build\assets\views\userinfo.html" />
+    <Content Include="RongCloudIM\build\download\index.html" />
+    <Content Include="RongCloudIM\build\index.html" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="RongCloudIM\jsonsource\broadcast\api.json" />
+    <Content Include="RongCloudIM\jsonsource\broadcast\verify.json" />
+    <Content Include="RongCloudIM\jsonsource\chatroom\api.json" />
+    <Content Include="RongCloudIM\jsonsource\chatroom\block\api.json" />
+    <Content Include="RongCloudIM\jsonsource\chatroom\demotion\api.json" />
+    <Content Include="RongCloudIM\jsonsource\chatroom\distribute\api.json" />
+    <Content Include="RongCloudIM\jsonsource\chatroom\global-gag\api.json" />
+    <Content Include="RongCloudIM\jsonsource\chatroom\keepalive\api.json" />
+    <Content Include="RongCloudIM\jsonsource\chatroom\member-gag\api.json" />
+    <Content Include="RongCloudIM\jsonsource\chatroom\verify.json" />
+    <Content Include="RongCloudIM\jsonsource\chatroom\whitelist\message\api.json" />
+    <Content Include="RongCloudIM\jsonsource\chatroom\whitelist\user\api.json" />
+    <Content Include="RongCloudIM\jsonsource\conversation\api.json" />
+    <Content Include="RongCloudIM\jsonsource\conversation\verify.json" />
+    <Content Include="RongCloudIM\jsonsource\group\api.json" />
+    <Content Include="RongCloudIM\jsonsource\group\gag\api.json" />
+    <Content Include="RongCloudIM\jsonsource\group\verify.json" />
+    <Content Include="RongCloudIM\jsonsource\message\api.json" />
+    <Content Include="RongCloudIM\jsonsource\message\chatroom\api.json" />
+    <Content Include="RongCloudIM\jsonsource\message\discussion\api.json" />
+    <Content Include="RongCloudIM\jsonsource\message\group\api.json" />
+    <Content Include="RongCloudIM\jsonsource\message\history\api.json" />
+    <Content Include="RongCloudIM\jsonsource\message\recall\api.json" />
+    <Content Include="RongCloudIM\jsonsource\message\system\api.json" />
+    <Content Include="RongCloudIM\jsonsource\message\TemplateMessage.json" />
+    <Content Include="RongCloudIM\jsonsource\message\verify.json" />
+    <Content Include="RongCloudIM\jsonsource\message\_private\api.json" />
+    <Content Include="RongCloudIM\jsonsource\PushMessage.json" />
+    <Content Include="RongCloudIM\jsonsource\push\api.json" />
+    <Content Include="RongCloudIM\jsonsource\push\verify.json" />
+    <Content Include="RongCloudIM\jsonsource\sensitiveword\api.json" />
+    <Content Include="RongCloudIM\jsonsource\sensitiveword\verify.json" />
+    <Content Include="RongCloudIM\jsonsource\TemplateMessage.json" />
+    <Content Include="RongCloudIM\jsonsource\UserTag.json" />
+    <Content Include="RongCloudIM\jsonsource\user\api.json" />
+    <Content Include="RongCloudIM\jsonsource\user\blacklist\api.json" />
+    <Content Include="RongCloudIM\jsonsource\user\block\api.json" />
+    <Content Include="RongCloudIM\jsonsource\user\online-status\api.json" />
+    <Content Include="RongCloudIM\jsonsource\user\tag\api.json" />
+    <Content Include="RongCloudIM\build\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="RongCloudIM\build\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="RongCloudIM\build\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="RongCloudIM\build\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="RongCloudIM\jsonsource\user\verify.json" />
+    <Content Include="Areas\APP\Views\web.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\RongCloud\Index.cshtml" />
+    <Content Include="Views\Home\NotFoundPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\APP\Models\" />
+    <Folder Include="Areas\APP\Views\FriendShip\" />
+    <Folder Include="Areas\APP\Views\Group\" />
+    <Folder Include="Areas\APP\Views\Misc\" />
+    <Folder Include="Areas\APP\Views\Shared\" />
+    <Folder Include="Areas\APP\Views\User\" />
+    <Folder Include="Views\FriendShip\" />
+    <Folder Include="Views\FrientShip\" />
+    <Folder Include="Views\Group\" />
+    <Folder Include="Views\User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{0e6d08c1-9907-4f89-aad6-62a76194b480}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RongIM\RongIM.csproj">
+      <Project>{a7355cbb-491a-4e00-9188-b9d2d19aa0a2}</Project>
+      <Name>RongIM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55112</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55112/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <UserProperties RongCloudIM_4jsonsource_4user_4api_1json__JSONSchema="" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
